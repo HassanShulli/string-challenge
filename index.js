@@ -1,3 +1,19 @@
+// Steps
+// (1) Validate the input, check if the number of rows is >= 1, check if the input string is valid
+// (2) Create an array of empty strings , num of rows === num of strings
+// (3) Initialize a boolean (decending) as true to begin adding characters in a decending manner
+// (4) Loop through each character of the input string, for each character , loop through the string array
+// if the index is equal to the character index, add the character, else add an empty space
+// (5) When the last row is reached the boolean is toggled and an ascending pattern continues
+// 
+// StringChallenge('coderbyte', "3");
+// produces the pattern :
+//  c   r  t 
+//   o e by e
+//    d   
+// 
+// (6) last step is to group the rows and produce the string output : crtoebyed
+
 const StringChallenge = (str, num) => {
   num = parseInt(num);
 
@@ -57,4 +73,4 @@ const printCharacters = (arr) => {
   })
 }
 
-StringChallenge('kaamvjjfl', "4");
+StringChallenge('coderbyte', "3");
