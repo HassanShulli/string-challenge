@@ -4,10 +4,10 @@
 // (3) Initialize a boolean (decending) as true to begin adding characters row by row in a decending manner
 // (4) Loop through each character of the input string and append it to the appropriate string based on the rowIndex
 // (5) When the last row is reached the boolean is toggled and an ascending pattern continues
-// (6) last step is to group the rows or strings to produce the string output : crtoebyed
+// (6) last step is to group the rows of strings to produce the string output : crtoebyed
 // 
 // Time Complexity O(n) where n is the length of the input string
-// Space Complexity O(n) as we are using an array
+// Space Complexity O(n) as we are using an array of length n (row length)
 
 // Code running here : https://repl.it/@Hassanshulli/zigzag-string-challenge#index.js
 
