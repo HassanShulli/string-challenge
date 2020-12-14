@@ -9,6 +9,8 @@
 // Time Complexity O(n) where n is the length of the input string
 // Space Complexity O(n) as we are using an array
 
+// Code running here : https://repl.it/@Hassanshulli/zigzag-string-challenge#index.js
+
 
 const StringChallenge = (str, num) => {
   num = parseInt(num);
