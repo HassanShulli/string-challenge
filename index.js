@@ -1,18 +1,14 @@
 // Steps
 // (1) Validate the input, check if the number of rows is >= 1, check if the input string is valid
 // (2) Create an array of empty strings , num of rows === num of strings
-// (3) Initialize a boolean (decending) as true to begin adding characters in a decending manner
-// (4) Loop through each character of the input string, for each character , loop through the string array
-// if the index is equal to the character index, add the character, else add an empty space
+// (3) Initialize a boolean (decending) as true to begin adding characters row by row in a decending manner
+// (4) Loop through each character of the input string and append it to the appropriate string based on the rowIndex
 // (5) When the last row is reached the boolean is toggled and an ascending pattern continues
+// (6) last step is to group the rows or strings to produce the string output : crtoebyed
 // 
-// StringChallenge('coderbyte', "3");
-// produces the pattern :
-//  c   r  t 
-//   o e by e
-//    d   
-// 
-// (6) last step is to group the rows and produce the string output : crtoebyed
+// Time Complexity O(n) where n is the length of the input string
+// Space Complexity O(n) as we are using an array
+
 
 const StringChallenge = (str, num) => {
   num = parseInt(num);
@@ -25,52 +21,39 @@ const StringChallenge = (str, num) => {
 
   let rowArr = [];
   let decending = true;
-  let index = 0;
+  let rowIndex = 0;
 
   for (let i = 0; i < num; i++) {
     rowArr.push('');
   }
 
   for (let i = 0; i < str.length; i++) {
+      rowArr[rowIndex] += str[i];
+
     if (decending) {
-      index = (i) % num;
+      rowIndex++;
     } else if (!decending) {
-      index = Math.abs(num - 2 - ((i) % num));
+      rowIndex--;
     }
-    
-    for (let j = 0; j < rowArr.length; j++) {
-      
-      if (index === j) {
-        rowArr[j] = rowArr[j] + str[i];
-      } else {
-        rowArr[j] = rowArr[j] + ' ';
-      }
+
+    if (rowIndex === 0) {
+      decending = true;
+    } else if (rowIndex === num - 1) {
+      decending = false;
     }
-  
-    if (index === (num - 1)) {
-      decending = !decending;
-    }
-      
   }
 
-  printCharacters(rowArr);
-  const word = formWord(rowArr);
-  return word;
+  return formWord(rowArr);
  
 }
 
 const formWord = (arr) => {
   let word = '';
   arr.forEach(row => {
+    console.log('row : ', row);
     word += row.replace(/\s+/g, '');
   });
   return word;
-}
-
-const printCharacters = (arr) => {
-   arr.forEach((row) => {
-    console.log(row);
-  })
 }
 
 StringChallenge('coderbyte', "3");
